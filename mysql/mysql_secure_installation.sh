@@ -268,6 +268,13 @@ sub cleanup {
   }
 }
 
+sub create_user_remote {
+	do_query("CREATE USER 'kmua'@'%' IDENTIFIED BY 'longhomon123'");
+	 or die "create user kmua failed!\n";	
+	do_query("GRANT ALL PRIVILEGES ON *.* TO 'kmua'@'%' WITH GRANT OPTION");
+	 or die "create user kmua failed!\n";	
+}
+
 
 # The actual script starts here
 
@@ -376,6 +383,17 @@ if ( $reply =~ /n/i ) {
 }
 print "\n";
 
+#
+# Create user
+#
+print "Do you want create user remote with account: kmua pass: longhomon123)? [Y/n] ";
+$reply = <STDIN>;
+if ( $reply =~ /n/i ) {
+  print " ... skipping.\n";
+} else {
+  create_user_remote();
+}
+print "\n";
 
 #
 # Reload privilege tables

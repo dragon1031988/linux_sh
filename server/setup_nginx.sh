@@ -1,5 +1,5 @@
-rm -rf /etc/nginx/sites-available/
-rm -rf /etc/nginx/sites-enabled/
+rm -rf -p /etc/nginx/sites-available/
+rm -rf -p /etc/nginx/sites-enabled/
 
 sudo cp -rf server/nginx/* /etc/nginx/
 sudo ln -s /etc/nginx/sites-available/default.conf /etc/nginx/sites-enabled/
