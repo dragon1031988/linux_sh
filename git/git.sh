@@ -1,9 +1,9 @@
 #Add color for git
 yum update
-yum install colordiff
+yum -y install colordiff
 
 #Copy config git to root
-cp .gitconfig ~/.gitconfig
+cp git/.gitconfig ~/.gitconfig
 
 # Config user
 git config --global user.name "David"
